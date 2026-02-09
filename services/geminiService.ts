@@ -1,6 +1,9 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Initialize the API client with the stable SDK
+// Note: Ensure REACT_APP_API_KEY or VITE_API_KEY or API_KEY is set in your Vercel Environment Variables
+const API_KEY = process.env.API_KEY || ''; 
+const genAI = new GoogleGenerativeAI(API_KEY);
 
 export const generateBlessing = async (
   name: string,
@@ -18,14 +21,16 @@ export const generateBlessing = async (
       Do not include any English text, only Hebrew.
     `;
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: prompt,
-    });
+    // Use the stable 'gemini-1.5-flash' model
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
 
-    return response.text || "לא הצלחתי ליצור ברכה כרגע, נסה שוב.";
+    return text || "לא הצלחתי ליצור ברכה כרגע, נסה שוב.";
   } catch (error) {
     console.error("Error generating blessing:", error);
-    return "אירעה שגיאה ביצירת הברכה.";
+    return "אירעה שגיאה ביצירת הברכה. אנא ודא שהגדרת API Key.";
   }
 };
