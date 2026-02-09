@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- SEO & Metadata -->
+    <title>בת מצווה נועה ✨</title>
+    <meta name="description" content="מתרגשים להזמין אתכם לחגוג איתנו! היכנסו לצפייה בהזמנה ואישור הגעה 🎉">
+    <meta name="theme-color" content="#1e1b4b">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="בת מצווה נועה ✨" />
+    <meta property="og:description" content="מתרגשים להזמין אתכם לחגוג איתנו! היכנסו לצפייה בהזמנה ואישור הגעה 🎉" />
+    <!-- שימוש בנתיב יחסי לתמונה -->
+    <meta property="og:image" content="./noa.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:site_name" content="הזמנה לבת מצווה" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="בת מצווה נועה ✨" />
+    <meta name="twitter:description" content="מתרגשים להזמין אתכם לחגוג איתנו! היכנסו לצפייה בהזמנה ואישור הגעה 🎉" />
+    <meta name="twitter:image" content="./noa.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;900&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Heebo', 'sans-serif'],
+              english: ['Outfit', 'sans-serif'],
+            },
+            colors: {
+              cyber: {
+                dark: '#1e1b4b', // Indigo 950
+                base: '#2e1065', // Violet 900
+                glass: 'rgba(255, 255, 255, 0.1)',
+                border: 'rgba(255, 255, 255, 0.15)',
+                accent: '#f472b6', // Pink 400
+                neon: '#c084fc', // Purple 400
+                gold: '#fbbf24', // Amber 400
+                silver: '#f8fafc', // Slate 50
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #1e1b4b;
+        background-image: 
+          linear-gradient(to bottom right, #2e1065, #1e1b4b, #312e81);
+        color: #f8fafc;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.03);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .glass-button {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+      ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+
+      .particle {
+        position: fixed;
+        background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.6;
+        animation: floatUp var(--duration) ease-in-out infinite;
+      }
+      
+      @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(0); opacity: 0; }
+        100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "firebase/": "https://esm.sh/firebase@^12.9.0/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="particles-container"></div>
+    <script>
+      const container = document.getElementById('particles-container');
+      const count = 40; 
+      for(let i=0; i<count; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const x = Math.random() * 100;
+        const size = Math.random() * 4 + 2; 
+        const duration = Math.random() * 15 + 10; 
+        const delay = Math.random() * 20;
+        const opacity = Math.random() * 0.5 + 0.2;
+        p.style.left = x + 'vw';
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.setProperty('--duration', duration + 's');
+        p.style.setProperty('--opacity', opacity);
+        p.style.animationDelay = delay + 's';
+        container.appendChild(p);
+      }
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
